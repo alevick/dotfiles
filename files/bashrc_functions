@@ -23,6 +23,6 @@ aws0() {
 }
 
 aws1() {
-    export AWS_ACCESS_KEY_ID=$(read_file ~/aws_pro_key)
+    export AWS_ACCESS_KEY_ID=$(read_file ~/aws_pro_id)
     export AWS_SECRET_ACCESS_KEY=$(read_file ~/aws_pro_key)
 }
