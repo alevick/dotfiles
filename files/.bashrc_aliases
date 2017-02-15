@@ -1,0 +1,13 @@
+alias disc="/mnt/common/registry/discover.py"
+alias lsec="/mnt/common/registry/ls_ec2.py"
+alias glom="source /mnt/common/registry/glom.sh"
+alias unglom="source /mnt/common/registry/unglom.sh"
+alias parallel-ssh="pssh -vP -O StrictHostKeyChecking=no -p10"
+alias dev='ssh -i ~/.ssh/moatbot.pem ubuntu@`cat ~/current_dev_box`'
+alias ctor='google-chrome --proxy-server="socks://localhost:9050"'
+alias cc_psql='psql -h cc-dev.moat.co -U codename -p 5433 codename_cache'
+alias mbdisc='/mnt/common/registry/discover.py moatbot-chrome | grep "\(us\|uk\)-\(desktop\|mobile\)"'
+alias gssh="ssh -A -o ProxyCommand='ssh gateway nc %h %p'"
+alias pyjson="python -mjson.tool"
+
+alias awk3='awk '"'"'{print $3}'"'"

@@ -1,0 +1,8 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_1='/mnt/moatbot/moatbot/backend'
+let g:netrw_dirhist_2='/mnt/search-deployment/_common'
+let g:netrw_dirhist_3='/mnt/search-deployment/codename-webserver/configs'
+let g:netrw_dirhist_4='/mnt/mocktool/mocktool/mqueue_worker'
+let g:netrw_dirhist_5='/mnt/moatbot/homepage_screenshots'
+let g:netrw_dirhist_6='/mnt/mocktool/mocktool/mqueue_worker'
