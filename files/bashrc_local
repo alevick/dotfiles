@@ -1,0 +1,8 @@
+alias canary="/Applications/Google\ Chrome\ Canary.app/Contents/MacOS/Google\ Chrome\ Canary"
+
+export GIT_AUTHOR_EMAIL=aaron.levick@moat.com
+export GIT_AUTHOR_NAME='Aaron Levick'
+export GIT_COMMITTER_EMAIL=aaron.levick@moat.com
+export GIT_COMMITTER_NAME='Aaron Levick'
+
+ssh-add /Users/alevick/.ssh/id_rsa /Users/alevick/.ssh/*.pem

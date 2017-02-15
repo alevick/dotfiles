@@ -30,9 +30,11 @@ echo $files
 echo Copying $files to $target using key file $pem
 
 for fn in $files; do
-    file=$local_files/$fn
-    echo $file $target:$fn
-    scp $pem $file $target:$fn
+    if [ *"local"* != $f ]; then 
+        file=$local_files/$fn
+        echo $file $target:$fn
+        scp $pem $file $target:$fn
+    fi
 done
 ssh $pem $target 'sudo -u ubuntu mkdir -p ~/.config && sudo chown ubuntu:ubuntu -R ~/.config && sudo pip install flake8 && sudo mkdir -p ~/.vim/autoload ~/.vim/bundle && sudo chown -R ubuntu:ubuntu ~/.vim && sudo curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && cd ~/.vim/bundle/ && rm -rf vim-flake8 && git clone https://github.com/nvie/vim-flake8'
 ssh $pem $target "if ! grep 'AcceptEnv .*AWS' /etc/ssh/sshd_config >/dev/null; then sudo sed -i 's/AcceptEnv /AcceptEnv AWS_* GIT_*/' /etc/ssh/sshd_config; fi"
