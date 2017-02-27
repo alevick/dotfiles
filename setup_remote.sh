@@ -10,9 +10,6 @@ pem=$2
 
 echo "PEM IS $pem"
 
-# Don't need this cause shit is simlinked now
-#cp ~/.bashrc ~/.tmux.conf ~/.vimrc ~/dot_files
-
 if [ -z $target ]; then
     echo 'Need to supply ip as first argument'
     exit 666
@@ -24,16 +21,17 @@ if [ -n "$pem" ]; then
 fi
 
 local_files=~/dot_files/files
-files=`ls -a $local_files | tail -n+3 | tr '\n' ' '`
-ssh $pem $target "rm $files"
+files=`ls $local_files | tr '\n' ' '`
 echo $files
 echo Copying $files to $target using key file $pem
 
 for fn in $files; do
-    if [ *"local"* != $f ]; then 
+    dot_fn=".$fn"
+    echo $fn
+    if [[ "$fn" != *"local"*  ]]; then
         file=$local_files/$fn
-        echo $file $target:$fn
-        scp $pem $file $target:$fn
+        echo $file $target:$dot_fn
+        scp $pem $file $target:$dot_fn
     fi
 done
 ssh $pem $target 'sudo -u ubuntu mkdir -p ~/.config && sudo chown ubuntu:ubuntu -R ~/.config && sudo pip install flake8 && sudo mkdir -p ~/.vim/autoload ~/.vim/bundle && sudo chown -R ubuntu:ubuntu ~/.vim && sudo curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && cd ~/.vim/bundle/ && rm -rf vim-flake8 && git clone https://github.com/nvie/vim-flake8'

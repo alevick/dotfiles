@@ -18,11 +18,23 @@ read_file() {
 }
 
 aws0() {
-    export AWS_ACCESS_KEY_ID=$(read_file ~/aws_an_id)
-    export AWS_SECRET_ACCESS_KEY=$(read_file ~/aws_an_key)
+    id=~/.aws_an_id
+    key=~/.aws_an_key
+    if [ -f $id -a -f $key ]; then
+        export AWS_ACCESS_KEY_ID=$(read_file $id)
+        export AWS_SECRET_ACCESS_KEY=$(read_file $key)
+    else
+        echo 'AWS files not found'
+    fi
 }
 
 aws1() {
-    export AWS_ACCESS_KEY_ID=$(read_file ~/aws_pro_id)
-    export AWS_SECRET_ACCESS_KEY=$(read_file ~/aws_pro_key)
+    id=~/.aws_pro_id
+    key=~/.aws_pro_key
+    if [ -f $id -a -f $key ]; then
+        export AWS_ACCESS_KEY_ID=$(read_file $id)
+        export AWS_SECRET_ACCESS_KEY=$(read_file $key)
+    else
+        echo 'AWS files not found'
+    fi
 }
