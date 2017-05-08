@@ -1,13 +1,6 @@
-function sshls() {
-    id=$1
-	ip=`/mnt/common/registry/ls_all_ec2.sh | grep -m1 $id | cut -f3`
-    echo "sshing to $ip"
-	ssh $ip
-}
-
 function sshi() {
     id=$1
-	ip=`/mnt/common/registry/discover.py | grep -m1 $id | cut -f6`
+	ip=`/mnt/moatpro/moatpro/moatpro/registry/ls_ec2.py | grep -m1 $id | cut -f2`
     echo "sshing to $ip"
 	ssh $ip
 }
@@ -37,4 +30,10 @@ aws1() {
     else
         echo 'AWS files not found'
     fi
+}
+
+mergediff() {
+    branch=origin/${1}
+    git merge --squash $branch
+    git difftool --staged
 }

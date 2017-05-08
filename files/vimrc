@@ -69,3 +69,8 @@ noremap gk k
 
 "Don<F3>'t allow wq command because I need a magic dialing wand or else I accidentally quit all the time"
 cmap wq WQ_IS_BOD
+
+"Use different colorscheme for vimdiff because otherwise it's illegible"
+if &diff
+    colorscheme desert
+endif

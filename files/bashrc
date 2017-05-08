@@ -57,21 +57,10 @@ if [ -n "$force_color_prompt" ]; then
     fi
 fi
 
-if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-else
-    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
-fi
-unset color_prompt force_color_prompt
+#change color of dirs in ls
+export LS_COLORS=$LS_COLORS:'di=1;36:'
 
-# If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+unset color_prompt force_color_prompt
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -139,7 +128,7 @@ num_colors=16
 
 ### git branch tab completion on OSX
 architecture=`uname -a`
-if [ ! "$architecture" = *'Linux'* ]; then
+if [[ ! "$architecture" = *'Linux'* ]]; then
     completion=~/.git-completion.bash
     test ! -f $completion  && curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o $completion
     . $completion
@@ -176,7 +165,7 @@ PS1="\[\e[$style;${color2}m\][\t]\[\e[0;${color}m\]\u@\h:\[\e[$style;${color2}m\
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$PATH:/mnt/common/registry/"
+export PATH="$PATH:/mnt/moatpro/moatpro/moatpro/registry/:/mnt/moatpro/moatpro/moatpro/util/"
 if ! [ `echo $PATH | grep '/usr/local/bin'` ]; then
     export PATH="/usr/local/bin:$PATH"
 fi
