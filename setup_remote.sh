@@ -31,6 +31,7 @@ for fn in $files; do
     if [[ "$fn" != *"local"*  ]]; then
         file=$local_files/$fn
         echo $file $target:$dot_fn
+        ssh $pem $target "rm $dot_fn"
         scp $pem $file $target:$dot_fn
     fi
 done

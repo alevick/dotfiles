@@ -126,39 +126,45 @@ for i in `seq 0 7`; do
 done
 num_colors=16
 
-### git branch tab completion on OSX
+### Git stuff
+# git branch tab completion on OSX
 architecture=`uname -a`
 if [[ ! "$architecture" = *'Linux'* ]]; then
     completion=~/.git-completion.bash
     test ! -f $completion  && curl https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o $completion
     . $completion
 fi
+# Use mergetool to see difference between two branches
+function mergeview() {
+    branch=$1
+    git merge origin/$branch --no-commit
+    git difftool --staged
+}
 
 ### Sick command prompt colors broh
-calc_color_index() {
+calc_color() {
     hash=$1
     offset=$2
-    echo "($hash+$offset) % $num_colors" | bc
+    index=`echo "($hash+$offset) % $num_colors" | bc`
+    echo ${colors[$index]}
 }
 
 offset=15
 offset2=0
 
 aaronhash=`echo 'alevick' | $md5sum | cut -d' ' -f1 | tr -d '[a-z]'`
-aaroncolor=`calc_color_index $aaronhash $offset`
+aaroncolor=`calc_color $aaronhash $offset`
 
-hash=`echo ${USER}$(curl -m 1 -s 169.254.169.254/latest/meta-data/instance-id) | $md5sum | cut -d' ' -f1 | tr -d '[a-z]'`
 role=`if [ -f /mnt/.installed_role ]; then cat /mnt/.installed_role; else echo 'alevick'; fi`
+hash=`echo ${USER}$(curl -m 1 -s 169.254.169.254/latest/meta-data/instance-id) | $md5sum | cut -d' ' -f1 | tr -d '[a-z]'`
+color=`calc_color $hash $offset`
 hash2=`echo $role | $md5sum | cut -d' ' -f1 | tr -d '[a-z]'`
-index2=`calc_color_index $hash2 $offset2`
-index=`calc_color_index $hash $offset`
-color2=${colors[$index2]}
-color=${colors[$index]}
+color2=`calc_color $hash2 $offset2`
 style=`echo "$hash % 3" | bc`  
 
 if [ $color -eq $aaroncolor -a $USER != 'alevick' ]; then
-    color=$((${color} + 1))
-    color2=$((${color2} + 1))
+    color=`calc_color $hash $(($offset +1))`
+    color2=`calc_color $hash2 $(($offset2 +1))`
 fi
 
 PS1="\[\e[$style;${color2}m\][\t]\[\e[0;${color}m\]\u@\h:\[\e[$style;${color2}m\]\w$\[\e[0m\] "
@@ -169,6 +175,9 @@ export PATH="$PATH:/mnt/moatpro/moatpro/moatpro/registry/:/mnt/moatpro/moatpro/m
 if ! [ `echo $PATH | grep '/usr/local/bin'` ]; then
     export PATH="/usr/local/bin:$PATH"
 fi
+
+### Added for Rust
+export PATH="$PATH:~/.cargo/bin/"
 
 # Make sure ssh alias configs are tab completable
 if [ -e $HOME/.ssh/config ]; then

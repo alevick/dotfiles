@@ -1,0 +1,21 @@
+[user]
+	name = Aaron Levick
+	email = aaron.levick@moat.com
+
+[diff]
+	tool = vimdiff
+
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+    prompt = false
+
+[alias]
+    # Branches sorted by last modified
+    b = "!git for-each-ref --sort='-authordate' --format='%(authordate)%09%(objectname:short)%09%(refname)' refs/heads | sed -e 's-refs/heads/--'"
+
+    cam = commit -a -m
+    co = checkout
+    l = log
+    s = status
+

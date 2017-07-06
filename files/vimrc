@@ -10,11 +10,19 @@ se term=xterm
 colorscheme slate
 let &t_Co=256
 
+"Because DOS style files blow
+se ff=unix 
+
+"Tabs are for suckers
 se shiftwidth=4
 se expandtab
 se tabstop=4
 se softtabstop=4
+
+"So is indenting manually
 se autoindent
+
+" ~ = A E S T H E T I C S = ~ "
 se hlsearch
 se nu
 se modeline
@@ -68,7 +76,7 @@ noremap gj j
 noremap gk k
 
 "Don<F3>'t allow wq command because I need a magic dialing wand or else I accidentally quit all the time"
-cmap wq WQ_IS_BOD
+"cmap wq WQ_IS_BOD
 
 "Use different colorscheme for vimdiff because otherwise it's illegible"
 if &diff
