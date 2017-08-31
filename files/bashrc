@@ -7,15 +7,16 @@
 
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-HISTCONTROL=ignoreboth
+export HISTCONTROL=ignoreboth
 
 # append to the history file, don't overwrite it
 # put history substitution commands on command line, instead of instantly executing
 shopt -s histappend histverify
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+export HISTSIZE=1000
+export HISTFILESIZE=2000
+export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # Editor choice for crontab
 export EDITOR=vim
@@ -56,9 +57,6 @@ if [ -n "$force_color_prompt" ]; then
 	color_prompt=
     fi
 fi
-
-#change color of dirs in ls
-export LS_COLORS=$LS_COLORS:'di=1;36:'
 
 unset color_prompt force_color_prompt
 
