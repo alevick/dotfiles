@@ -11,3 +11,5 @@ alias pyjson="python -mjson.tool"
 
 alias pip="pip2"
 alias spip="sudo pip2"
+
+alias clean-branches='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
