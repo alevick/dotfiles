@@ -100,7 +100,7 @@ if [ -f ~/.bashrc_functions ]; then
     . ~/.bashrc_functions
 fi
 
-# Local aliases that shouldn't be checked into dot_files repo
+# Local aliases that shouldn't be checked into dotfiles repo
 if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
@@ -125,6 +125,13 @@ done
 num_colors=16
 
 ### Git stuff
+
+# Author/committer settings
+export GIT_AUTHOR_EMAIL=`cat ~/.git_email`
+export GIT_AUTHOR_NAME='Aaron Levick'
+export GIT_COMMITTER_EMAIL=`cat ~/.git_email`
+export GIT_COMMITTER_NAME='Aaron Levick'
+
 # git branch tab completion on OSX
 architecture=`uname -a`
 if [[ ! "$architecture" = *'Linux'* ]]; then
@@ -169,7 +176,6 @@ PS1="\[\e[$style;${color2}m\][\t]\[\e[0;${color}m\]\u@\h:\[\e[$style;${color2}m\
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="$PATH:/mnt/moatpro/moatpro/moatpro/registry/:/mnt/moatpro/moatpro/moatpro/util/"
 if ! [ `echo $PATH | grep '/usr/local/bin'` ]; then
     export PATH="/usr/local/bin:$PATH"
 fi

@@ -7,6 +7,7 @@
 
 target=$1
 pem=$2
+DIR=`cd $(dirname $0) && pwd`
 
 echo "PEM IS $pem"
 
@@ -20,7 +21,7 @@ if [ -n "$pem" ]; then
     pem="-i $pem"
 fi
 
-local_files=~/dot_files/files
+local_files=$DIR/files
 files=`ls $local_files | tr '\n' ' '`
 echo $files
 echo Copying $files to $target using key file $pem
@@ -35,6 +36,8 @@ for fn in $files; do
         scp $pem $file $target:$dot_fn
     fi
 done
-ssh $pem $target 'sudo -u ubuntu mkdir -p ~/.config && sudo chown ubuntu:ubuntu -R ~/.config && sudo pip install flake8 && sudo mkdir -p ~/.vim/autoload ~/.vim/bundle && sudo chown -R ubuntu:ubuntu ~/.vim && sudo curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && cd ~/.vim/bundle/ && rm -rf vim-flake8 && git clone https://github.com/nvie/vim-flake8'
+
+scp $DIR/install_pathogen_flake8.sh $target:~/
+ssh $pem $target 'python ~/install_pathogen_flake8.sh'
 ssh $pem $target "if ! grep 'AcceptEnv .*AWS' /etc/ssh/sshd_config >/dev/null; then sudo sed -i 's/AcceptEnv /AcceptEnv AWS_* GIT_*/' /etc/ssh/sshd_config; fi"
-scp $pem ~/dot_files/flake8 $target:~/.config/flake8 #Copy .vim dir with flake8 settings etc
+scp $pem $DIR/flake8 $target:~/.config/flake8 #Copy .vim dir with flake8 settings etc
