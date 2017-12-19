@@ -55,6 +55,11 @@ map <Esc>[D :vertical resize -1 <CR>
 map <Esc>[C :vertical resize +1 <CR>
 map <Esc>[B :resize -1 <CR>
 map <Esc>[A :resize +1 <CR>
+"Esc remapping
+nmap ss <Esc>
+imap ss <Esc>
+vmap ss <Esc>
+cmap ss <Esc>
 
 " " " " " " " " " " " "
 
