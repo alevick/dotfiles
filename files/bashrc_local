@@ -1,1 +1,1 @@
-ssh-add /Users/alevick/.ssh/id_rsa /Users/alevick/.ssh/*.pem
+ssh-add /Users/$USER/.ssh/id_rsa /Users/$USER/.ssh/*.pem

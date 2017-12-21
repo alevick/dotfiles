@@ -56,10 +56,10 @@ map <Esc>[C :vertical resize +1 <CR>
 map <Esc>[B :resize -1 <CR>
 map <Esc>[A :resize +1 <CR>
 "Esc remapping
-nmap ss <Esc>
-imap ss <Esc>
-vmap ss <Esc>
-cmap ss <Esc>
+nmap qq <Esc>
+imap qq <Esc>
+vmap qq <Esc>
+cmap qq <Esc>
 
 " " " " " " " " " " " "
 
@@ -87,3 +87,5 @@ noremap gk k
 if &diff
     colorscheme desert
 endif
+
+so ~/.vimrc_local
