@@ -161,13 +161,14 @@ aaronhash=`echo 'alevick' | $md5sum | cut -d' ' -f1 | tr -d '[a-z]'`
 aaroncolor=`calc_color $aaronhash $offset`
 
 role=`if [ -f /mnt/.installed_role ]; then cat /mnt/.installed_role; else echo 'alevick'; fi`
-hash=`echo ${USER}$(curl -m 1 -s 169.254.169.254/latest/meta-data/instance-id) | $md5sum | cut -d' ' -f1 | tr -d '[a-z]'`
+#hash=`echo ${USER}$(curl -m 1 -s 169.254.169.254/latest/meta-data/instance-id) | $md5sum | cut -d' ' -f1 | tr -d '[a-z]'`
+hash=`echo $USER | $md5sum | cut -d' ' -f1 | tr -d '[a-z]'`
 color=`calc_color $hash $offset`
 hash2=`echo $role | $md5sum | cut -d' ' -f1 | tr -d '[a-z]'`
 color2=`calc_color $hash2 $offset2`
 style=`echo "$hash % 3" | bc`  
 
-if [ $color -eq $aaroncolor -a $USER != 'alevick' ]; then
+if [ $color -eq $aaroncolor -a $USER != 'alevick' -a $USER != 'aaron.levick' ]; then
     color=`calc_color $hash $(($offset +1))`
     color2=`calc_color $hash2 $(($offset2 +1))`
 fi
@@ -188,6 +189,6 @@ if [ -e $HOME/.ssh/config ]; then
     complete -o default -o nospace -W "$(/usr/bin/env ruby -ne 'puts $_.split(/[,\s]+/)[1..-1].reject{|host| host.match(/\*|\?/)} if $_.match(/^\s*Host\s+/);' < $HOME/.ssh/config)" scp sftp ssh
 fi
 
-if [ "$role" != "alevick" ]; then
-    export PROMPT_COMMAND='echo -ne "\033]0;'$role'\007"'
-fi
+#if [ "$role" != "alevick" ]; then
+#    export PROMPT_COMMAND='echo -ne "\033]0;'$role'\007"'
+#fi
