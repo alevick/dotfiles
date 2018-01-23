@@ -1,9 +1,3 @@
-alias lsec="/mnt/moatpro/moatpro/moatpro/registry/ls_ec2.py"
-alias glom="source /mnt/moatpro/moatpro/moatpro/registry/glom.sh"
-alias unglom="source /mnt/moatpro/moatpro/moatpro/registry/unglom.sh"
-
-alias cc_psql="psql -h cc-dev.moat.co -U codename -p 5433 codename_cache"
-
 alias parallel-ssh="pssh -vP -O StrictHostKeyChecking=no -p10"
 alias gssh="ssh -A -o ProxyCommand='ssh gateway nc %h %p'"
 
