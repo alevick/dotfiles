@@ -2,6 +2,34 @@
 execute pathogen#infect()
 autocmd FileType python map <C-H> :call Flake8()<CR>
 
+"Vundle"
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+Plugin 'Valloric/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+" Close completion window when done
+let g:ycm_autoclose_preview_window_after_completion=1
+" <leader>g to go to definition
+map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+
 "Colors on a mac"
 filetype off
 syntax on
@@ -12,6 +40,9 @@ let &t_Co=256
 
 "Because DOS style files blow
 se ff=unix 
+
+" Apparently necessary to be able to backspace after installing YCM
+se backspace=indent,eol,start
 
 "Tabs are for suckers
 se shiftwidth=4
@@ -34,8 +65,10 @@ hi MatchParen ctermbg=darkcyan ctermfg=white
 hi CursorLine   cterm=underline ctermbg=None ctermfg=NONE guibg=darkred guifg=white
 hi Visual cterm=reverse ctermbg=None ctermfg=None
 
-" " " " " " " " " " " "
+"Special file extension syntax highlighting
+au BufReadPost *.j2 set syntax=yaml
 
+" " " " " " " " " " " "
 "Show all buffers and quickswitch"
 map <C-L> :buffers<CR>:b<Space>
 "Kill current buffer
@@ -73,6 +106,9 @@ cmap qq <Esc>
 "map <C-L> :execute "tabnext" <CR>
 
 " " " " " " " " " " " "
+
+"Make <space> leader key
+let mapleader = " "
 
 "Switch moving in wrapped lines and moving between lines"
 noremap j gj

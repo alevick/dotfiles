@@ -10,7 +10,7 @@ read_file() {
     echo $out
 }
 
-aws() {
+set-aws() {
     id=~/.aws_id
     key=~/.aws_key
     if [ -f $id -a -f $key ]; then
