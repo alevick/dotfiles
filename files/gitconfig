@@ -1,9 +1,9 @@
 [user]
-	name = Aaron Levick
-	email = aaron.levick@moat.com
+    name = Aaron Levick
+    email = aaron.levick@moat.com
 
 [diff]
-	tool = vimdiff
+    tool = vimdiff
 
 [merge]
     tool = vimdiff
@@ -18,4 +18,4 @@
     co = checkout
     l = log
     s = status
-    po = pull origin
+    pu = push -u

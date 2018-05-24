@@ -26,3 +26,38 @@ mergediff() {
     git merge --squash $branch
     git difftool --staged
 }
+
+# Use mergetool to see difference between two branches
+function mergeview() {
+    branch=$1
+    git merge origin/$branch --no-commit
+    git difftool --staged
+}
+
+killpowerchime() {
+  defaults write com.apple.PowerChime ChimeOnAllHardware -bool false;
+  killall PowerChime
+}
+
+spo-dev-setup() {
+#        start-docker
+        version=""
+        if [ -z "$1" ]; then
+                echo "setting version to current branch name"
+                version=$(git rev-parse --abbrev-ref HEAD)
+        else
+                echo "version passed in as $1"
+                version="$1"
+        fi
+        export DEV_PREFIX="aaron"
+        export DEPLOY_ENV="dev"
+        export CONTAINER_VERSION=$version
+        export DOCKER_REPOSITORY="237272174871.dkr.ecr.us-east-1.amazonaws.com"
+        export SBT_BUILD_VERSION=$version
+        #eval $(aws ecr get-login --registry-ids 237272174871 --no-include-email --region us-east-1 --profile default)
+        eval $(aws ecr get-login --no-include-email --region us-east-1 --profile default)
+}
+
+start-docker() {
+        eval "$(docker-machine env default)"
+}

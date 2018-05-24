@@ -11,7 +11,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 " alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
+"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
@@ -19,16 +19,14 @@ Plugin 'gmarik/Vundle.vim'
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
 
-Plugin 'Valloric/YouCompleteMe'
+"Plugin 'Valloric/YouCompleteMe'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+call vundle#end()           " required
+filetype plugin indent on   " required
 
-" Close completion window when done
-let g:ycm_autoclose_preview_window_after_completion=1
-" <leader>g to go to definition
-map <leader>g  :YcmCompleter GoToDefinitionElseDeclaration<CR>
+" YCM Configs
+"so ~/.ycm_config
 
 "Colors on a mac"
 filetype off
@@ -38,17 +36,27 @@ se term=xterm
 colorscheme slate
 let &t_Co=256
 
-"Because DOS style files blow
+""Because DOS style files blow
 se ff=unix 
+se fileformat=unix
 
-" Apparently necessary to be able to backspace after installing YCM
+""Apparently necessary to be able to backspace after installing YCM
 se backspace=indent,eol,start
 
+"Fix that bullshit where vim will FORCE comments to places they don't belong
+set cindent
+set cinkeys-=0#
+set indentkeys-=0#
+
 "Tabs are for suckers
-se shiftwidth=4
 se expandtab
+se shiftwidth=4
 se tabstop=4
 se softtabstop=4
+
+"Tab completion when opening files
+set wildmode=longest,list,full
+set wildmenu
 
 "So is indenting manually
 se autoindent
@@ -121,7 +129,7 @@ noremap gk k
 
 "Use different colorscheme for vimdiff because otherwise it's illegible"
 if &diff
-    colorscheme desert
+    colorscheme default
 endif
 
 so ~/.vimrc_local
