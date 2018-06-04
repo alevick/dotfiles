@@ -7,6 +7,8 @@ alias clean-branches='git branch --merged | egrep -v "(^\*|master)" | xargs git 
 
 alias venv3='virtualenv -p python3.6'
 
+alias start-mysql='sudo /usr/local/mysql/support-files/mysql.server start'
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -20,7 +22,7 @@ else
     alias parallel-ssh='pssh'
 fi
 
-alias grep='grep --color=auto -I'
+alias grep='grep --color=auto -I --exclude-dir "*node_modules*"'
 alias fgrep='fgrep --color=auto -I'
 alias egrep='egrep --color=auto -I'
 

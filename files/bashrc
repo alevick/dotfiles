@@ -20,6 +20,8 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 # Editor choice for crontab
 export EDITOR=vim
+# Vim mode for command line (just press escape)
+set -o vi
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.

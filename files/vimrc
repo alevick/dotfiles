@@ -10,9 +10,6 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 
@@ -23,7 +20,7 @@ Plugin 'gmarik/Vundle.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()           " required
-filetype plugin indent on   " required
+filetype plugin on          " required
 
 " YCM Configs
 "so ~/.ycm_config
@@ -31,16 +28,21 @@ filetype plugin indent on   " required
 "Colors on a mac"
 filetype off
 syntax on
-filetype plugin indent on
+" XXX: this filetype plugin indent is fucking everything up e.g. closing
+" braces in python on a separate line do not get outdented properly. WTF
+filetype plugin on
+filetype indent on
 se term=xterm
 colorscheme slate
 let &t_Co=256
 
-""Because DOS style files blow
+autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
+
+"Because DOS style files blow
 se ff=unix 
 se fileformat=unix
 
-""Apparently necessary to be able to backspace after installing YCM
+"Apparently necessary to be able to backspace after installing YCM
 se backspace=indent,eol,start
 
 "Fix that bullshit where vim will FORCE comments to places they don't belong
@@ -54,12 +56,12 @@ se shiftwidth=4
 se tabstop=4
 se softtabstop=4
 
+"So is indenting manually
+se autoindent
+
 "Tab completion when opening files
 set wildmode=longest,list,full
 set wildmenu
-
-"So is indenting manually
-se autoindent
 
 " ~ = A E S T H E T I C S = ~ "
 se hlsearch
@@ -69,6 +71,7 @@ se ls=2
 se ruler
 se hidden
 se cursorline
+se statusline+="%F %m"
 hi MatchParen ctermbg=darkcyan ctermfg=white
 hi CursorLine   cterm=underline ctermbg=None ctermfg=NONE guibg=darkred guifg=white
 hi Visual cterm=reverse ctermbg=None ctermfg=None
