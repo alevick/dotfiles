@@ -9,7 +9,7 @@ while read dot_file; do
     local_file=~/.`basename $dot_file`
     if [[ "$dot_file" = *"bashrc_local"* ]]; then
         echo Copying $local_file to $dot_file
-        rm $local_file
+        rm -f $local_file
         cp $dot_file $local_file
     else
         echo Linking $local_file to $dot_file

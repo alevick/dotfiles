@@ -7,6 +7,11 @@ DIR=`cd $(dirname $0) && pwd`
 $DIR/link_all_dot_files.sh
 
 if ! which pip > /dev/null ; then
+    echo 'Installing homebrew...'
+    echo  | /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+fi
+
+if ! which pip > /dev/null ; then
     echo 'Do you want to install and setup pip/flake/pathogen?'
     read resp
     if [ "$resp" = 'y'* ]; then
