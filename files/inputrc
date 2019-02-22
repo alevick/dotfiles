@@ -4,4 +4,9 @@ $if mode=vi
 
     set keymap vi-insert
     Control-l: clear-screen
+
+    set keymap vi-command
+    "qq": vi-insertion-mode
+    set keymap vi-insert
+    "qq": vi-movement-mode
 $endif
