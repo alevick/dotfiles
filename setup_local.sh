@@ -25,3 +25,5 @@ if [[ ! -f ~/.git_email ]]; then
     read email
     echo $email > ~/.git_email
 fi
+
+$DIR/install_scm_breeze.sh

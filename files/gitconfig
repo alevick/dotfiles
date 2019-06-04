@@ -1,13 +1,13 @@
 [user]
     name = Aaron Levick
-    email = aaron.levick@moat.com
+	email = aaron.levick@zocdoc.com
 
 [diff]
     tool = vimdiff
 
 [merge]
     tool = vimdiff
-    conflictstyle = diff3
+    conflictstyle = diff3 # Show merge base as well as downstream diffs
     prompt = false
 
 [alias]

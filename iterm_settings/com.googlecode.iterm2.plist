@@ -170,10 +170,12 @@
 		<key>TB Is Shown</key>
 		<integer>1</integer>
 	</dict>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>1910 1844 620 392 1680 716 1080 1897 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>1741 1121 918 512 1680 716 1080 1897 </string>
+	<string>1741 1105 918 494 1680 716 1080 1897 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1680 716 1080 1444 1680 716 1080 1897 </string>
+	<string>0 552 570 475 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_F207A37C-3F29-416D-AB93-A9511DCEF9E0</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_F207A37C-3F29-416D-AB93-A9511DCEF9E0_selection</key>
@@ -1369,15 +1371,59 @@
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>B56A432A-CDAA-4F44-B550-25C68AD83D52</string>
+	<key>NoSyncLastTipTime</key>
+	<real>579652149.03987002</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
 	<integer>0</integer>
+	<key>NoSyncPermissionToShowTip</key>
+	<true/>
+	<key>NoSyncSuppressClipboardAccessDeniedWarning</key>
+	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
 	<real>572547983.77686799</real>
+	<key>NoSyncTipsToNotShow</key>
+	<array>
+		<string>000</string>
+		<string>0000</string>
+		<string>0001</string>
+		<string>0001</string>
+		<string>0002</string>
+		<string>0003</string>
+		<string>0004</string>
+		<string>0005</string>
+		<string>0006</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>0009</string>
+		<string>0010</string>
+		<string>0011</string>
+		<string>0012</string>
+		<string>0013</string>
+		<string>0014</string>
+		<string>0015</string>
+		<string>0016</string>
+		<string>0017</string>
+		<string>0018</string>
+		<string>0019</string>
+		<string>0020</string>
+		<string>0021</string>
+		<string>0022</string>
+		<string>0023</string>
+		<string>0024</string>
+		<string>0025</string>
+		<string>0026</string>
+		<string>0027</string>
+		<string>0028</string>
+		<string>0029</string>
+		<string>0030</string>
+	</array>
 	<key>OpenArrangementAtStartup</key>
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
+	<false/>
+	<key>PMPrintingExpandedStateForPrint2</key>
 	<false/>
 	<key>PointerActions</key>
 	<dict>
@@ -1414,6 +1460,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/aaron.levick/dotfiles/iterm_settings</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<true/>
 	<key>SUEnableAutomaticChecks</key>
@@ -1425,11 +1473,13 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-02-22T17:06:23Z</date>
+	<date>2019-05-16T16:16:03Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
+	<key>SUSkippedVersion</key>
+	<string>3.2.9</string>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>SmartPlacement</key>
 	<false/>
 	<key>StretchTabsToFillBar</key>
@@ -1443,6 +1493,6 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.2.7</string>
+	<string>3.2.8</string>
 </dict>
 </plist>
