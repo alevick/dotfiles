@@ -172,4 +172,8 @@ fi
 #    export PROMPT_COMMAND='echo -ne "\033]0;'$role'\007"'
 #fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 [ -s "/Users/aaron.levick/.scm_breeze/scm_breeze.sh" ] && source "/Users/aaron.levick/.scm_breeze/scm_breeze.sh"
