@@ -163,14 +163,13 @@ fi
 ### Added for Rust
 export PATH="$PATH:~/.cargo/bin/"
 
+### Set AWS config files
+set-aws
+
 # Make sure ssh alias configs are tab completable
 if [ -e $HOME/.ssh/config ]; then
     complete -o default -o nospace -W "$(/usr/bin/env ruby -ne 'puts $_.split(/[,\s]+/)[1..-1].reject{|host| host.match(/\*|\?/)} if $_.match(/^\s*Host\s+/);' < $HOME/.ssh/config)" scp sftp ssh
 fi
-
-#if [ "$role" != "alevick" ]; then
-#    export PROMPT_COMMAND='echo -ne "\033]0;'$role'\007"'
-#fi
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm

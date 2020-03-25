@@ -1,6 +1,6 @@
 [user]
     name = Aaron Levick
-	email = aaron.levick@zocdoc.com
+    email = aaron.levick@gmail.com
 
 [diff]
     tool = vimdiff
