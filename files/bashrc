@@ -80,6 +80,9 @@ if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
 
+# TODO: at some point, should make it so I can specify which bashrc extension to link when setting up a box
+. ~/.bashrc_extension
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -101,10 +104,10 @@ num_colors=16
 ### Git stuff
 
 # Author/committer settings
-export GIT_AUTHOR_EMAIL=`cat ~/.git_email`
-export GIT_AUTHOR_NAME='Aaron Levick'
-export GIT_COMMITTER_EMAIL=`cat ~/.git_email`
-export GIT_COMMITTER_NAME='Aaron Levick'
+#export GIT_AUTHOR_EMAIL=`cat ~/.git_email`
+#export GIT_AUTHOR_NAME='Aaron Levick'
+#export GIT_COMMITTER_EMAIL=`cat ~/.git_email`
+#export GIT_COMMITTER_NAME='Aaron Levick'
 
 # git branch tab completion on OSX
 architecture=`uname -a`
@@ -163,7 +166,7 @@ fi
 ### Added for Rust
 export PATH="$PATH:~/.cargo/bin/"
 
-### Set AWS config files
+### Set AWS config vars
 set-aws
 
 # Make sure ssh alias configs are tab completable

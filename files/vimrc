@@ -78,6 +78,7 @@ hi Visual cterm=reverse ctermbg=None ctermfg=None
 
 "Special file extension syntax highlighting
 au BufReadPost *.j2 set syntax=yaml
+au BufReadPost *.ts set syntax=javascript
 
 " " " " " " " " " " " "
 "Show all buffers and quickswitch"

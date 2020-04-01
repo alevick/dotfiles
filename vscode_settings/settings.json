@@ -1,0 +1,11 @@
+{
+    "workbench.editor.enablePreview": false,
+    "files.autoSave": "off",
+    "editor.formatOnSave": true,
+    "vim.vimrc.enable": true,
+    "vim.vimrc.path": "/Users/aaron/.vimrc",
+    "pgFormatter.keywordCase": "lowercase",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
+}

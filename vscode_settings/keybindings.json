@@ -1,0 +1,41 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+    {
+        "key": "ctrl+cmd+e",
+        "command": "workbench.action.showErrorsWarnings",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "cmd+f1",
+        "command": "-workbench.action.showErrorsWarnings",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.tasks.reRunTask"
+    },
+    {
+        "key": "ctrl+r",
+        "command": "-workbench.action.openRecent"
+    },
+    {
+        "key": "z f",
+        "command": "editor.fold",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+cmd+[",
+        "command": "-editor.fold",
+        "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "z o",
+        "command": "editor.unfold",
+        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+    },
+    {
+        "key": "alt+cmd+]",
+        "command": "-editor.unfold",
+        "when": "editorTextFocus && foldingEnabled"
+    }
+]
