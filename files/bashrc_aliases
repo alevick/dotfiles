@@ -38,3 +38,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 
 # Docker stuff
 alias docker-kill-all='docker kill $(docker ps -q)'
+alias dc='docker-compose'
+
+# General configuration stuff
+alias enable-key-repeat-mac='defaults write -g ApplePressAndHoldEnabled -bool false'

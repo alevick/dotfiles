@@ -1,16 +1,6 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
     {
-        "key": "ctrl+cmd+e",
-        "command": "workbench.action.showErrorsWarnings",
-        "when": "editorTextFocus"
-    },
-    {
-        "key": "cmd+f1",
-        "command": "-workbench.action.showErrorsWarnings",
-        "when": "editorTextFocus"
-    },
-    {
         "key": "ctrl+r",
         "command": "-workbench.action.tasks.reRunTask"
     },
@@ -37,5 +27,34 @@
         "key": "alt+cmd+]",
         "command": "-editor.unfold",
         "when": "editorTextFocus && foldingEnabled"
+    },
+    {
+        "key": "alt+f8",
+        "command": "-workbench.debug.action.toggleRepl"
+    },
+    {
+        "key": "alt+f8",
+        "command": "-editor.debug.action.selectionToRepl",
+        "when": "editorHasSelection && editorTextFocus"
+    },
+    {
+        "key": "ctrl+cmd+e",
+        "command": "editor.action.marker.next",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "alt+f8",
+        "command": "-editor.action.marker.next",
+        "when": "editorFocus && !editorReadonly"
+    },
+    {
+        "key": "z z",
+        "command": "center-editor-window.center",
+        "when": "editorTextFocus || findWidgetVisible"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "-center-editor-window.center",
+        "when": "editorTextFocus || findWidgetVisible"
     }
 ]

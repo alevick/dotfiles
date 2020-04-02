@@ -1,6 +1,6 @@
 #!/bin/bash
 
-brew install gnu-grep
+brew install grep
 
 GGREP=`which ggrep`
 LINKED_GGREP=`echo $GGREP | sed 's/ggrep/grep/g'`

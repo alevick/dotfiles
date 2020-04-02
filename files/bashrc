@@ -166,6 +166,9 @@ fi
 ### Added for Rust
 export PATH="$PATH:~/.cargo/bin/"
 
+### Use gnu-grep
+export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+
 ### Set AWS config vars
 set-aws
 
