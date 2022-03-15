@@ -108,6 +108,7 @@ num_colors=16
 #export GIT_AUTHOR_NAME='Aaron Levick'
 #export GIT_COMMITTER_EMAIL=`cat ~/.git_email`
 #export GIT_COMMITTER_NAME='Aaron Levick'
+export GIT_COMPLETION_CHECKOUT_NO_GUESS=1 # don't autocomplete git checkout with stupid things
 
 # git branch tab completion on OSX
 architecture=`uname -a`
@@ -169,8 +170,12 @@ export PATH="$PATH:~/.cargo/bin/"
 ### Use gnu-grep
 export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
 
+### Added for mysql
+export PATH="${PATH}:/usr/local/bin/mysql"
+
 ### Set AWS config vars
-set-aws
+# Disabled for now, because I feel like this isn't necessary if I set ~/.aws/credentials
+#set-aws
 
 # Make sure ssh alias configs are tab completable
 if [ -e $HOME/.ssh/config ]; then

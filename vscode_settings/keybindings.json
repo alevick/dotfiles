@@ -1,60 +1,191 @@
 // Place your key bindings in this file to override the defaultsauto[]
 [
-    {
-        "key": "ctrl+r",
-        "command": "-workbench.action.tasks.reRunTask"
-    },
-    {
-        "key": "ctrl+r",
-        "command": "-workbench.action.openRecent"
-    },
-    {
-        "key": "z f",
-        "command": "editor.fold",
-        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
-    },
-    {
-        "key": "alt+cmd+[",
-        "command": "-editor.fold",
-        "when": "editorTextFocus && foldingEnabled"
-    },
-    {
-        "key": "z o",
-        "command": "editor.unfold",
-        "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
-    },
-    {
-        "key": "alt+cmd+]",
-        "command": "-editor.unfold",
-        "when": "editorTextFocus && foldingEnabled"
-    },
-    {
-        "key": "alt+f8",
-        "command": "-workbench.debug.action.toggleRepl"
-    },
-    {
-        "key": "alt+f8",
-        "command": "-editor.debug.action.selectionToRepl",
-        "when": "editorHasSelection && editorTextFocus"
-    },
-    {
-        "key": "ctrl+cmd+e",
-        "command": "editor.action.marker.next",
-        "when": "editorFocus && !editorReadonly"
-    },
-    {
-        "key": "alt+f8",
-        "command": "-editor.action.marker.next",
-        "when": "editorFocus && !editorReadonly"
-    },
-    {
-        "key": "z z",
-        "command": "center-editor-window.center",
-        "when": "editorTextFocus || findWidgetVisible"
-    },
-    {
-        "key": "ctrl+l",
-        "command": "-center-editor-window.center",
-        "when": "editorTextFocus || findWidgetVisible"
-    }
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.tasks.reRunTask"
+  },
+  {
+    "key": "ctrl+r",
+    "command": "-workbench.action.openRecent"
+  },
+  {
+    "key": "z o",
+    "command": "editor.unfold",
+    "when": "editorTextFocus && foldingEnabled && vim.mode == 'Normal'"
+  },
+  {
+    "key": "alt+cmd+]",
+    "command": "-editor.unfold",
+    "when": "editorTextFocus && foldingEnabled"
+  },
+  {
+    "key": "alt+f8",
+    "command": "-workbench.debug.action.toggleRepl"
+  },
+  {
+    "key": "alt+f8",
+    "command": "-editor.debug.action.selectionToRepl",
+    "when": "editorHasSelection && editorTextFocus"
+  },
+  {
+    "key": "ctrl+cmd+e",
+    "command": "editor.action.marker.next",
+    "when": "editorFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+f8",
+    "command": "-editor.action.marker.next",
+    "when": "editorFocus && !editorReadonly"
+  },
+  {
+    "key": "z z",
+    "command": "center-editor-window.center",
+    "when": "editorTextFocus && vim.mode == 'Normal'"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "-center-editor-window.center",
+    "when": "editorTextFocus || findWidgetVisible"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "extension.vim_ctrl+n",
+    "when": "suggestWidgetVisible && editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "-extension.vim_ctrl+n",
+    "when": "editorTextFocus && vim.active && vim.use<C-n> && !inDebugRepl || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'CommandlineInProgress' || vim.active && vim.use<C-n> && !inDebugRepl && vim.mode == 'SearchInProgressMode'"
+  },
+  {
+    "key": "ctrl+shift+p",
+    "command": "editor.action.peekTypeDefinition"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "f2",
+    "command": "-editor.action.rename",
+    "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+i",
+    "command": "editor.action.showDefinitionPreviewHover"
+  },
+  {
+    "key": "ctrl+cmd+b",
+    "command": "editor.action.goToTypeDefinition",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "ctrl+shift+b",
+    "command": "-editor.action.goToTypeDefinition",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+e",
+    "command": "-workbench.view.explorer"
+  },
+  {
+    "key": "shift+escape",
+    "command": "-closeParameterHints",
+    "when": "editorFocus && parameterHintsVisible"
+  },
+  {
+    "key": "escape",
+    "command": "closeParameterHints",
+    "when": "editorFocus && parameterHintsVisible"
+  },
+  {
+    "key": "shift+escape",
+    "command": "-closeDirtyDiff",
+    "when": "dirtyDiffVisible"
+  },
+  {
+    "key": "escape",
+    "command": "closeDirtyDiff",
+    "when": "dirtyDiffVisible"
+  },
+  {
+    "key": "z f",
+    "command": "editor.fold",
+    "when": "editorTextFocus && foldingEnabled  && vim.mode == 'Normal'"
+  },
+  {
+    "key": "alt+cmd+[",
+    "command": "-editor.fold",
+    "when": "editorTextFocus && foldingEnabled"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "-extension.vim_ctrl+o",
+    "when": "editorTextFocus && vim.active && vim.use<C-o> && !inDebugRepl"
+  },
+  {
+    "key": "ctrl+o",
+    "command": "workbench.action.navigateBack"
+  },
+  {
+    "key": "alt+cmd+left",
+    "command": "-workbench.action.navigateBack"
+  },
+  {
+    "key": "ctrl+i",
+    "command": "workbench.action.navigateForward"
+  },
+  {
+    "key": "shift shift",
+    "command": "-workbench.action.showCommands"
+  },
+  {
+    "key": "s",
+    "command": "-workbench.action.files.save",
+    "when": "notebookEditorFocused && !inputFocus"
+  },
+  {
+    "key": "shift+cmd+s",
+    "command": "workbench.action.files.save"
+  },
+  {
+    "key": "cmd+s",
+    "command": "-workbench.action.files.save"
+  },
+  {
+    "key": "ctrl+cmd+s",
+    "command": "workbench.action.files.saveAs"
+  },
+  {
+    "key": "shift+cmd+s",
+    "command": "-workbench.action.files.saveAs"
+  },
+  {
+    "key": "ctrl+cmd+w",
+    "command": "-workbench.action.toggleTabsVisibility"
+  },
+  {
+    "key": "shift+cmd+f",
+    "command": "-workbench.action.findInFiles"
+  },
+  {
+    "key": "ctrl+cmd+f",
+    "command": "-workbench.action.toggleFullScreen",
+    "when": "!isIOS"
+  },
+  {
+    "key": "shift+cmd+f",
+    "command": "editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  {
+    "key": "shift+alt+f",
+    "command": "-editor.action.formatDocument",
+    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+  },
+  {
+    "key": "shift shift",
+    "command": "-workbench.action.quickOpen"
+  }
 ]

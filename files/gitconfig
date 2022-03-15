@@ -19,3 +19,8 @@
     l = log
     s = status
     pu = push -u
+[pull]
+	rebase = false
+
+[includeIf "gitdir:~/src/github.com/work_org/"]
+  path = ~/.gitconfig_work

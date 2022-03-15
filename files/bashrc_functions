@@ -32,6 +32,11 @@ killpowerchime() {
     killall PowerChime
 }
 
+fix-bluetooth-headphones-mic() {
+    defaults delete bluetoothaudiod
+    echo 'Now you gotta go into bluetooth explorer'
+}
+
 start-docker() {
     eval "$(docker-machine env default)"
 }
@@ -40,3 +45,5 @@ utcfromtimestamp() {
     ts=$1
     python -c "from datetime import datetime as dt; print(dt.utcfromtimestamp($ts))"
 }
+
+

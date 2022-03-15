@@ -2,8 +2,7 @@ alias parallel-ssh="pssh -vP -O StrictHostKeyChecking=no -p10"
 alias gssh="ssh -A -o ProxyCommand='ssh gateway nc %h %p'"
 
 alias pyjson="python -mjson.tool"
-
-alias clean-branches='git branch --merged | egrep -v "(^\*|master)" | xargs git branch -d'
+alias pip='pip3'
 
 alias venv3='virtualenv -p python3.6'
 
@@ -31,14 +30,25 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias ..='cd ..'
+alias dev='cd ~/dev/'
+
+# Git
+alias clean-branches='git branch --merged | egrep -v "(^\*|main)" | xargs git branch -d'
+alias main='git checkout main && git pull origin main'
+alias switch='git switch -'
+alias prdiff='git diff origin/main...HEAD' # only shows diff of _committed_ code on HEAD will add to main
+alias newbranch='git checkout main && git pull origin main && git checkout -b'
+
+# Docker stuff
+alias docker-kill-all='docker kill $(docker ps -q)'
+alias docker-prune='docker volume prune -f && docker system prune -f' # useful for when docker runs out of space
+alias docker-purge='docker rm -f $(docker ps -a -q) && docker volume rm $(docker volume ls -q)'
+alias dc='docker-compose'
+
+# General configuration stuff
+alias enable-key-repeat-mac='defaults write -g ApplePressAndHoldEnabled -bool false'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-# Docker stuff
-alias docker-kill-all='docker kill $(docker ps -q)'
-alias dc='docker-compose'
-
-# General configuration stuff
-alias enable-key-repeat-mac='defaults write -g ApplePressAndHoldEnabled -bool false'

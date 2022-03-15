@@ -19,8 +19,42 @@
         ]
     },
     "terraform.languageServer": {
-        "enabled": true,
-        "args": []
+        "external": true
     },
-    "problems.decorations.enabled": false
+    "problems.decorations.enabled": false,
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "editor.parameterHints.enabled": false,
+    "search.searchOnType": false,
+    "editor.autoClosingOvertype": "always",
+    "editor.copyWithSyntaxHighlighting": false,
+    "vim.overrideCopy": false,
+    "files.trimTrailingWhitespace": true,
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "todohighlight.keywords": [
+        "XXX:"
+    ],
+    "pgFormatter.spaces": 2,
+    "window.zoomLevel": 0,
+    "pgFormatter.commaBreak": true,
+    "extensions.ignoreRecommendations": true,
+    "git.confirmSync": false,
+    "vim.ignorecase": false,
+    "editor.gotoLocation.multipleDeclarations": "gotoAndPeek",
+    "editor.tabSize": 2,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.quickSuggestions": false,
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter.notebook.ipynb"
+    },
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "editor.wordWrap": "on",
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[sql]": {
+        "editor.defaultFormatter": "bradymholt.pgformatter"
+    },
+    "editor.minimap.enabled": false,
+    "diffEditor.ignoreTrimWhitespace": false,
 }
