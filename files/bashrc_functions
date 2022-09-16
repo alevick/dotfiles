@@ -41,6 +41,13 @@ start-docker() {
     eval "$(docker-machine env default)"
 }
 
+docker-purge() {
+  docker rm $(docker ps -a -q)
+  docker rmi $(docker images -q)
+  docker volume rm $(docker volume ls |awk '{print $2}')
+  rm -rf ~/Library/Containers/com.docker.docker/Data/*
+}
+
 utcfromtimestamp() {
     ts=$1
     python -c "from datetime import datetime as dt; print(dt.utcfromtimestamp($ts))"

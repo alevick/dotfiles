@@ -154,10 +154,6 @@
     "command": "-workbench.action.files.save"
   },
   {
-    "key": "ctrl+cmd+s",
-    "command": "workbench.action.files.saveAs"
-  },
-  {
     "key": "shift+cmd+s",
     "command": "-workbench.action.files.saveAs"
   },
@@ -187,5 +183,23 @@
   {
     "key": "shift shift",
     "command": "-workbench.action.quickOpen"
+  },
+  {
+    "key": "cmd+-",
+    "command": "-editor.fold",
+    "when": "editorFocus && foldingEnabled"
+  },
+  {
+    "key": "cmd+=",
+    "command": "-editor.unfold",
+    "when": "editorFocus && foldingEnabled"
+  },
+  {
+    "key": "ctrl+cmd+s",
+    "command": "workbench.action.files.saveWithoutFormatting"
+  },
+  {
+    "key": "cmd+k s",
+    "command": "-workbench.action.files.saveWithoutFormatting"
   }
 ]
