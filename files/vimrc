@@ -1,31 +1,31 @@
-"Pathogen"
-"execute pathogen#infect()
-"autocmd FileType python map <C-H> :call Flake8()<CR>
+ ""Pathogen"
+" execute pathogen#infect()
+" autocmd FileType python map <C-H> :call Flake8()<CR>
 "
 ""Vundle"
-"set nocompatible              " required
-"filetype off                  " required
+""set nocompatible              " required
+""filetype off                  " required
 "
-"" set the runtime path to include Vundle and initialize
-"set rtp+=~/.vim/bundle/Vundle.vim
-"call vundle#begin()
+" set the runtime path to include Vundle and initialize
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
 "
-"" let Vundle manage Vundle, required
-"Plugin 'gmarik/Vundle.vim'
+" " let Vundle manage Vundle, required
+" Plugin 'gmarik/Vundle.vim'
 "
-"" add all your plugins here (note older versions of Vundle
-"" used Bundle instead of Plugin)
+" " add all your plugins here (note older versions of Vundle
+" " used Bundle instead of Plugin)
 "
-""Plugin 'Valloric/YouCompleteMe'
+" "Plugin 'Valloric/YouCompleteMe'
 "
-"" All of your Plugins must be added before the following line
-"call vundle#end()           " required
-"filetype plugin on          " required
+" " All of your Plugins must be added before the following line
+""call vundle#end()           " required
+""filetype plugin on          " required
 
 " YCM Configs
 "so ~/.ycm_config
 
-"Colors on a mac"
+""Colors on a mac"
 filetype off
 syntax on
 " XXX: this filetype plugin indent is fucking everything up e.g. closing
@@ -79,6 +79,7 @@ hi Visual cterm=reverse ctermbg=None ctermfg=None
 "Special file extension syntax highlighting
 au BufReadPost *.j2 set syntax=yaml
 au BufReadPost *.ts set syntax=javascript
+autocmd BufNewFile,BufRead *.tf set syntax=tf
 
 " " " " " " " " " " " "
 "Show all buffers and quickswitch"
@@ -122,16 +123,16 @@ cmap qq <Esc>
 "Make <space> leader key
 let mapleader = " "
 
-"Switch moving in wrapped lines and moving between lines"
+""Switch moving in wrapped lines and moving between lines"
 noremap j gj
 noremap k gk
 noremap gj j
 noremap gk k
 
-"Don<F3>'t allow wq command because I need a magic dialing wand or else I accidentally quit all the time"
+""Don't allow wq command because I need a magic dialing wand or else I accidentally quit all the time"
 "cmap wq WQ_IS_BOD
 
-"Use different colorscheme for vimdiff because otherwise it's illegible"
+""Use different colorscheme for vimdiff because otherwise it's illegible"
 if &diff
     colorscheme default
 endif
