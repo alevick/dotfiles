@@ -5,6 +5,7 @@ alias pyjson="python -mjson.tool"
 alias pip='pip3'
 
 alias venv3='virtualenv -p python3.6'
+alias ipy="python -c 'import IPython; IPython.terminal.ipapp.launch_new_instance()'"
 
 alias start-mysql='sudo /usr/local/mysql/support-files/mysql.server start'
 
@@ -21,7 +22,7 @@ else
     alias parallel-ssh='pssh'
 fi
 
-alias grep='grep --color=auto -I --exclude-dir "*node_modules*"'
+alias grep='ggrep --color=auto -I --exclude-dir "*node_modules*"'
 alias fgrep='fgrep --color=auto -I'
 alias egrep='egrep --color=auto -I'
 
@@ -34,10 +35,12 @@ alias dev='cd ~/dev/'
 
 # Git
 alias clean-branches='git branch --merged | egrep -v "(^\*|main)" | xargs git branch -d'
-alias main='git checkout main && git pull origin main'
+alias master='git checkout master && git pull origin master'
 alias switch='git switch -'
 alias prdiff='git diff origin/main...HEAD' # only shows diff of _committed_ code on HEAD will add to main
-alias newbranch='git checkout main && git pull origin main && git checkout -b'
+#alias newbranch='git checkout main && git pull origin main && git checkout -b' # Replaced by function that finds whatever default branch is
+#alias main='git checkout main && git pull origin main' # Replaced by function that finds whatever default branch is
+
 
 # Docker stuff
 alias docker-kill-all='docker kill $(docker ps -q)'
@@ -51,4 +54,3 @@ alias enable-key-repeat-mac='defaults write -g ApplePressAndHoldEnabled -bool fa
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-

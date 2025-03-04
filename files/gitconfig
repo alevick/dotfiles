@@ -20,7 +20,20 @@
     s = status
     pu = push -u
 [pull]
-	rebase = false
+    rebase = false
 
-[includeIf "gitdir:~/src/github.com/work_org/"]
-  path = ~/.gitconfig_work
+[includeIf "gitdir:~/seedfi/"]
+    path = ~/seedfi/.gitconfig
+
+[includeIf "gitdir:~/dbt/"]
+    path = ~/dbt/.gitconfig
+
+[includeIf "gitdir:~/ck/**/"]
+    path = ~/.gitconfig_work
+
+[credential]
+	helper = !aws codecommit credential-helper $@
+  UseHttpPath = true
+
+[gpg]
+	program = /opt/homebrew/bin/gpg

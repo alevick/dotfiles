@@ -41,6 +41,7 @@ autocmd FileType python setlocal shiftwidth=4 tabstop=4 softtabstop=4
 "Because DOS style files blow
 se ff=unix 
 se fileformat=unix
+se nobomb " do not use BOM characters (Byte Order Mark) bc they fuck up utf-8
 
 "Apparently necessary to be able to backspace after installing YCM
 se backspace=indent,eol,start
@@ -59,11 +60,14 @@ se softtabstop=2
 "So is indenting manually
 se autoindent
 
+"Prevent vim from automatically continuing comments on subsequent lines
+autocmd FileType * setlocal formatoptions-=cro
+
 "Tab completion when opening files
 set wildmode=longest,list,full
 set wildmenu
 
-" ~ = A E S T H E T I C S = ~ "
+"" ~ = A E S T H E T I C S = ~ "
 se hlsearch
 se nu
 se modeline
@@ -75,11 +79,14 @@ se statusline+="%F %m"
 hi MatchParen ctermbg=darkcyan ctermfg=white
 hi CursorLine   cterm=underline ctermbg=None ctermfg=NONE guibg=darkred guifg=white
 hi Visual cterm=reverse ctermbg=None ctermfg=None
+hi Normal ctermbg=black
 
 "Special file extension syntax highlighting
 au BufReadPost *.j2 set syntax=yaml
 au BufReadPost *.ts set syntax=javascript
 autocmd BufNewFile,BufRead *.tf set syntax=tf
+autocmd BufNewFile,BufRead *.sh set syntax=zsh
+autocmd BufNewFile,BufRead *bashrc* set syntax=zsh
 
 " " " " " " " " " " " "
 "Show all buffers and quickswitch"

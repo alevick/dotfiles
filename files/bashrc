@@ -81,7 +81,9 @@ if [ -f ~/.bashrc_local ]; then
 fi
 
 # TODO: at some point, should make it so I can specify which bashrc extension to link when setting up a box
-. ~/.bashrc_extension
+if [ -f ~/.bashrc_extension ]; then
+    . ~/.bashrc_extension
+fi
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -89,6 +91,15 @@ fi
 if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
+
+# Added for Homebrew
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+export LIBRARY_PATH=$LIBRARY_PATH:/opt/homebrew/opt/openssl/lib # required to be able to install psycopg2
 
 md5sum='md5sum'
 if ! [ `which md5sum` ]; then
@@ -102,12 +113,6 @@ done
 num_colors=16
 
 ### Git stuff
-
-# Author/committer settings
-#export GIT_AUTHOR_EMAIL=`cat ~/.git_email`
-#export GIT_AUTHOR_NAME='Aaron Levick'
-#export GIT_COMMITTER_EMAIL=`cat ~/.git_email`
-#export GIT_COMMITTER_NAME='Aaron Levick'
 export GIT_COMPLETION_CHECKOUT_NO_GUESS=1 # don't autocomplete git checkout with stupid things
 
 # git branch tab completion on OSX
@@ -125,7 +130,7 @@ if [ -f ~/.git-completion.bash ]; then
   # Add git completion to aliases
   __git_complete g __git_main
   __git_complete gc _git_checkout
-  __git_complete gm __git_merge
+  __git_complete gm _git_merge
   __git_complete gp _git_pull
 fi
 
@@ -167,9 +172,6 @@ fi
 ### Added for Rust
 export PATH="$PATH:~/.cargo/bin/"
 
-### Use gnu-grep
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-
 ### Added for mysql
 export PATH="${PATH}:/usr/local/bin/mysql"
 
@@ -191,10 +193,4 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -s "/Users/aaron.levick/.scm_breeze/scm_breeze.sh" ] && source "/Users/aaron.levick/.scm_breeze/scm_breeze.sh"
 
-# Added for Homebrew
-export HOMEBREW_PREFIX="/opt/homebrew";
-export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
-export HOMEBREW_REPOSITORY="/opt/homebrew";
-export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}";
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:";
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
+. "$HOME/.cargo/env"

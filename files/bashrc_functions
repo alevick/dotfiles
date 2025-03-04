@@ -1,9 +1,9 @@
-read_file() {
+function read_file() {
     out=$(cat $1 | tr -d '\n')
     echo $out
 }
 
-set-aws() {
+function set-aws() {
     id=~/.aws_id
     key=~/.aws_key
     if [ -f $id -a -f $key ]; then
@@ -14,7 +14,29 @@ set-aws() {
     fi
 }
 
-mergediff() {
+########### GIT #############
+# Git func to go to default branch and update it
+function main() {
+  # Confusing way suggested online. Starting a sed command w/o a command e.g. '/XYZ' instead of 's/XYZ'
+  # means to only run the substitution on the lines that match XYZ
+  # -n combined with trailing p command means to only print the lines with any matches
+  #branch=`git remote show [your_remote] | sed -n '/HEAD branch/s/.*: //p'`
+
+  # Less confusing way suggested by me
+  branch=`git remote show origin | grep 'HEAD branch' | sed 's/.* //'`
+  git fetch
+  git checkout $branch
+  git pull origin $branch
+}
+
+function newbranch() {
+  default_branch=`git remote show origin | grep 'HEAD branch' | sed 's/.* //'`
+  git checkout $default_branch && \
+  git pull origin $default_branch && \
+  git checkout -b $1
+}
+
+function mergediff() {
     branch=origin/${1}
     git merge --squash $branch
     git difftool --staged
@@ -27,30 +49,35 @@ function mergeview() {
     git difftool --staged
 }
 
-killpowerchime() {
+####################################
+
+function killpowerchime() {
     defaults write com.apple.PowerChime ChimeOnAllHardware -bool false;
     killall PowerChime
 }
 
-fix-bluetooth-headphones-mic() {
+function fix-bluetooth-headphones-mic() {
     defaults delete bluetoothaudiod
     echo 'Now you gotta go into bluetooth explorer'
 }
 
-start-docker() {
+function start-docker() {
     eval "$(docker-machine env default)"
 }
 
-docker-purge() {
-  docker rm $(docker ps -a -q)
-  docker rmi $(docker images -q)
-  docker volume rm $(docker volume ls |awk '{print $2}')
-  rm -rf ~/Library/Containers/com.docker.docker/Data/*
+function docker-purge() {
+    docker rm $(docker ps -a -q)
+    docker rmi $(docker images -q)
+    docker volume rm $(docker volume ls |awk '{print $2}')
+    rm -rf ~/Library/Containers/com.docker.docker/Data/*
 }
 
-utcfromtimestamp() {
+function utcfromtimestamp() {
     ts=$1
     python -c "from datetime import datetime as dt; print(dt.utcfromtimestamp($ts))"
 }
 
-
+function fix-app-switcher() {
+    defaults write com.apple.dock appswitcher-all-displays -bool true
+    killall Dock
+}

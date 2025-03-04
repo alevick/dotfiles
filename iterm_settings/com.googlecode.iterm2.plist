@@ -1373,7 +1373,7 @@
 	<key>Selection Respects Soft Boundaries</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>SmartPlacement</key>
 	<false/>
 	<key>SoundForEsc</key>
