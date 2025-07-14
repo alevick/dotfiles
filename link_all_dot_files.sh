@@ -11,6 +11,10 @@ while read dot_file; do
         echo Copying $local_file to $dot_file
         rm -f $local_file
         cp $dot_file $local_file
+    elif [[ "$dot_file" = *"goosehints"* ]]; then
+        local_file=~/.config/goose/.`basename $dot_file`
+        echo Linking $local_file to $dot_file
+        ln -sf $dot_file $local_file
     else
         echo Linking $local_file to $dot_file
         ln -sf $dot_file $local_file

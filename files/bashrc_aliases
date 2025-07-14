@@ -35,6 +35,7 @@ alias dev='cd ~/dev/'
 
 # Git
 alias clean-branches='git branch --merged | egrep -v "(^\*|main)" | xargs git branch -d'
+alias prunesquashmergedgit='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse "$branch^{tree}") -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 alias master='git checkout master && git pull origin master'
 alias switch='git switch -'
 alias prdiff='git diff origin/main...HEAD' # only shows diff of _committed_ code on HEAD will add to main

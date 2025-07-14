@@ -1,0 +1,7 @@
+If I ask you to run a sql query or connect to our prod replica database, here is how you would do that. Connect to our postgresql database via port 15433 and host localhost - no username, password or db required. Generally, all of our tables are in the schemas `webapp` or `lending`.
+
+If I ask you to run a sql query on our data warehouse database, use the same instructions as the above instructions for connecting to prod replica database but use port 15434 instead of port 15433.
+
+If I ask you to run a sql query on our redash database, use the same instructions as the above instructions for connecting to prod replica database but use port 15444 instead of port 15433.
+
+Do not execute any database commands except `select` against the database without confirming with me first.
