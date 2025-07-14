@@ -29,6 +29,11 @@ function main() {
   git pull origin $branch
 }
 
+function prunesquashmergedgit() {
+  main_branch=`git remote show origin | grep 'HEAD branch' | sed 's/.* //'`
+  git checkout -q $main_branch && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse "$branch^{tree}") -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done
+}
+
 function newbranch() {
   default_branch=`git remote show origin | grep 'HEAD branch' | sed 's/.* //'`
   git checkout $default_branch && \
