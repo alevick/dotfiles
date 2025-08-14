@@ -5,3 +5,5 @@ If I ask you to run a sql query on our data warehouse database, use the same ins
 If I ask you to run a sql query on our redash database, use the same instructions as the above instructions for connecting to prod replica database but use port 15444 instead of port 15433.
 
 Do not execute any database commands except `select` against the database without confirming with me first.
+
+Do not update any code without first asking for confirmation of the changes you are about to make.
