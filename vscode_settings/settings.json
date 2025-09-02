@@ -1,9 +1,8 @@
 {
   "workbench.editor.enablePreview": false,
   "files.autoSave": "off",
-  "editor.formatOnSave": true,
   "vim.vimrc.enable": true,
-  "vim.vimrc.path": "/Users/aaron/.vimrc",
+  "vim.vimrc.path": "/Users/aaron.levick/.vimrc",
   "pgFormatter.keywordCase": "lowercase",
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -48,6 +47,7 @@
   "editor.wordWrap": "on",
   "javascript.updateImportsOnFileMove.enabled": "always",
   "[sql]": {
+    "editor.formatOnType": false,
     "editor.defaultFormatter": "bradymholt.pgformatter"
   },
   "editor.minimap.enabled": false,
@@ -63,14 +63,28 @@
     "**/dbt/**/*.yml": "jinja-yaml",
     "**/dbt/**/*.sql": "sql",
     "**/dbt/**/docs/**/*.md": "jinja-md",
-    "*.sql": "sql"
+    "*.sql": "sql",
+    "*.tf": "terraform"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "explorer.confirmDragAndDrop": false,
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.python",
+  "[python][javascript][typescript]": {
+    "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnType": true
-  }
+  },
+  "explorer.confirmDelete": false,
+  "python.analysis.fixAll": [],
+  "remote.SSH.remotePlatform": {
+    "coder-vscode--aaronlevick--subledger-local-composer": "linux",
+    "coder-vscode--aaronlevick--subledger-local-composer--main": "linux"
+  },
+  "flake8.args": ["--extend-ignore E501"],
+  "openInGitHub.gitHubDomain": "code.corp.creditkarma.com",
+  "openInGitHub.providerType": "github",
+  "openInGitHub.providerProtocol": "https", //https, http. Useful for custom domains that don't support https. Defaults to https.
+  "openInGitHub.defaultPullRequestBranch": "main",
+  "github-enterprise.uri": "https://code.corp.creditkarma.com/"
 }
+

@@ -105,11 +105,6 @@
     "when": "dirtyDiffVisible"
   },
   {
-    "key": "escape",
-    "command": "closeDirtyDiff",
-    "when": "dirtyDiffVisible"
-  },
-  {
     "key": "z f",
     "command": "editor.fold",
     "when": "editorTextFocus && foldingEnabled  && vim.mode == 'Normal'"
@@ -201,5 +196,50 @@
   {
     "key": "cmd+k s",
     "command": "-workbench.action.files.saveWithoutFormatting"
+  },
+  {
+    "key": "cmd+k",
+    "command": "-git.commitAll",
+    "when": "!inDebugMode && !operationInProgress && !terminalFocus"
+  },
+  {
+    "key": "cmd+n",
+    "command": "-editor.action.sourceAction",
+    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "cmd+.",
+    "command": "-editor.toggleFold",
+    "when": "editorFocus && foldingEnabled"
+  },
+  {
+    "key": "ctrl+shift+cmd+s",
+    "command": "workbench.action.toggleKeybindingsLog"
+  },
+  {
+    "key": "escape",
+    "command": "extension.vim_escape",
+    "when": "editorTextFocus && vim.active && !dirtyDiffVisible && !inDebugRepl && !parameterHintsVisible"
+  },
+  {
+    "key": "escape",
+    "command": "-extension.vim_escape",
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  {
+    "key": "cmd+l",
+    "command": "-workbench.action.gotoLine"
+  },
+  {
+    "key": "shift+tab",
+    "command": "editor.action.acceptCursorTabSuggestion",
+    "when": "cpp.shouldAcceptTab"
+  },
+  {
+    "key": "tab",
+    "command": "-editor.action.acceptCursorTabSuggestion",
+    "when": "cpp.shouldAcceptTab"
   }
 ]
+
+
